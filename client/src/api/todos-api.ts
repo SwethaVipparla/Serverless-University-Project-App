@@ -5,7 +5,7 @@ import Axios from 'axios'
 import { UpdateTodoRequest } from '../types/UpdateTodoRequest';
 
 export async function getTodos(idToken: string): Promise<Todo[]> {
-  console.log('Fetching todos')
+  console.log('Fetching projects')
 
   const response = await Axios.get(`${apiEndpoint}/todos`, {
     headers: {

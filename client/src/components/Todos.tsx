@@ -56,7 +56,7 @@ export class Todos extends React.PureComponent<TodosProps, TodosState> {
         newTodoName: ''
       })
     } catch {
-      alert('Todo creation failed')
+      alert('Project creation failed')
     }
   }
 
@@ -67,7 +67,7 @@ export class Todos extends React.PureComponent<TodosProps, TodosState> {
         todos: this.state.todos.filter(todo => todo.todoId != todoId)
       })
     } catch {
-      alert('Todo deletion failed')
+      alert('Project deletion failed')
     }
   }
 
@@ -85,7 +85,7 @@ export class Todos extends React.PureComponent<TodosProps, TodosState> {
         })
       })
     } catch {
-      alert('Todo deletion failed')
+      alert('Project deletion failed')
     }
   }
 
@@ -97,14 +97,14 @@ export class Todos extends React.PureComponent<TodosProps, TodosState> {
         loadingTodos: false
       })
     } catch (e) {
-      alert(`Failed to fetch todos: ${e.message}`)
+      alert(`Failed to fetch projects: ${e.message}`)
     }
   }
 
   render() {
     return (
       <div>
-        <Header as="h1">TODOs</Header>
+        <Header as="h1">University Projects</Header>
 
         {this.renderCreateTodoInput()}
 
@@ -127,7 +127,7 @@ export class Todos extends React.PureComponent<TodosProps, TodosState> {
             }}
             fluid
             actionPosition="left"
-            placeholder="To change the world..."
+            placeholder="Computer project for Tuesday's class..."
             onChange={this.handleNameChange}
           />
         </Grid.Column>

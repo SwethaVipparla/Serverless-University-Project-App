@@ -1,5 +1,5 @@
 service:
-  name: serverless-university-project-app
+  name: sls-project-app
 
 plugins:
   - serverless-webpack

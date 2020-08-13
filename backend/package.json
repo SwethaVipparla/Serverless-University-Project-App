@@ -1,5 +1,5 @@
 {
-  "name": "serverless-university-project-app",
+  "name": "sls-project-app",
   "version": "1.0.0",
   "description": "Serverless university projects checklist",
   "dependencies": {

@@ -25,7 +25,7 @@ export class TodoDataLayer {
 
     //Create project 
     public async createTodoItem(todo: TodoItem): Promise<TodoItem> {
-        logger.info(`Creating a ToDo..`);
+        logger.info(`Creating a project..`);
         await this.docClient.put({
             TableName: this.todoTable,
             Item: todo
@@ -35,7 +35,7 @@ export class TodoDataLayer {
 
     //Get project 
     public async getTodoItem(todoId: string, userId: string): Promise<TodoItem> {
-        logger.info(`Getting TODO for: ${userId}`);
+        logger.info(`Getting project for: ${userId}`);
         const pull = await this.docClient.query({
             TableName: this.todoTable,
             KeyConditionExpression: 'userId = :userId, todoId = :todoId',
@@ -46,7 +46,7 @@ export class TodoDataLayer {
 
     //Get project list
     public async getTodoList(userId: string): Promise<TodoItem[]> {
-        logger.info(`Getting TODO list for: ${userId}`);
+        logger.info(`Getting projects list for: ${userId}`);
         const result = await this.docClient
             .query({
                 TableName: this.todoTable,
@@ -61,7 +61,7 @@ export class TodoDataLayer {
 
     //Update project
     public async updateTodoItem(todo: TodoUpdate, todoId: string, userId: string) {
-        logger.info('Updating TODO for: ', {user: userId, todo});
+        logger.info('Updating project for: ', {user: userId, todo});
         await this.docClient.update({
             TableName: this.todoTable,
             Key: {'userId': userId, 'todoId': todoId},
@@ -74,7 +74,7 @@ export class TodoDataLayer {
 
     //Update project attachment
     public async updateTodoItemAttachment(attachmentUrl: string, todoId: string, userId: string) {
-        logger.info(`Updating TODO item image URL for: ${userId}`);
+        logger.info(`Updating prohect image URL for: ${userId}`);
         await this.docClient.update({
             TableName: this.todoTable,
             Key: {'userId': userId, 'todoId': todoId},
@@ -86,7 +86,7 @@ export class TodoDataLayer {
     
     //Delete project
     public async deleteTodoItem(todoId: string, userId: string) {
-        logger.info(`Deleting TODO for: ${userId}`);
+        logger.info(`Deleting project for: ${userId}`);
         await this.docClient.delete({
             TableName: this.todoTable,
             Key: {"userId": userId, "todoId": todoId}
